@@ -1,8 +1,7 @@
-name: ci
-
+name: Build
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   docker:
     runs-on: testserver
