@@ -11,11 +11,17 @@ jobs:
       - name: lint
         run: npm run lint 
   tests:
-    needs: [lint]
+    needs: [lint] #зависимости
+    strategy: # стретегии
+      matrix:
+        version: [14, 16, 18]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }} # переменные
       - name: Install deps
         run: npm ci
       - name: test
