@@ -19,6 +19,7 @@ jobs:
     strategy: 
       matrix:
         version: [ 18, 20, 22 ]
+        # os: [ windows, ubuntu-latest ]
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
@@ -31,3 +32,8 @@ jobs:
         run: npm ci
       - name: test
         run: npm run test
+  secrets:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Echo secrets
+        run: echo test
