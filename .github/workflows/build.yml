@@ -21,10 +21,10 @@ jobs:
         context: .
         tags: my-app:latest
         push: false
+        load: true
     - name: Run Docker Container
       run: |
         docker run -d \
-          --name my-app
+          --name my-app \
           -p 3000:3000 \
           my-app:latest
-  
