@@ -1,13 +1,13 @@
 name: Build and Run Docker
-on: 
+
+on:
   push:
-    branches: [ main ]
-jobs: 
+    branches: [main]
+jobs:
   build-and-run:
     runs-on: d4r1a
+    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
     -
       name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -21,7 +21,6 @@ jobs:
         context: .
         tags: my-app:latest
         push: false
-        load: true
     - name: Run Docker Container
       run: |
         docker run -d \
